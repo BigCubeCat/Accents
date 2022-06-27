@@ -1,6 +1,6 @@
 export const roundedButton = {
-  width: 100,
-  height: 100,
+  width: 90,
+  height: 90,
   borderRadius: '100%',
 };
 
@@ -13,6 +13,11 @@ export const word = {
   justifyContent: 'start',
   marginTop: 10,
 };
+
+export const bigBottomButton = {
+  position: 'relative',
+  width: '100%',
+}
 
 export const centeredContainer = {
   width: '70%',

@@ -1,8 +1,8 @@
-import React, {useState } from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {useSelector} from 'react-redux';
 import Welcome from './components/Welcome';
-import {createTheme, ThemeProvider} from '@mui/material';
+import {Box, createTheme, ThemeProvider} from '@mui/material';
 import Header from './components/Header';
 import {WINDOWS} from './store/actions';
 import Game from './components/Game/Game';
@@ -31,26 +31,21 @@ function App() {
       mainWidget = <Game/>;
       break;
     case WINDOWS.FINISH:
-      mainWidget = <Finish />
+      mainWidget = <Finish/>;
       break;
     default:
-      mainWidget = <Welcome />
+      mainWidget = <Welcome/>;
       break;
   }
   return (
-      <div className="App">
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Box sx={{display: 'flex'}}>
           <Header/>
-          <div className="Container" style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '5%',
-          }}>
+          <Box component="main" sx={{p: 3}}>
             {mainWidget}
-          </div>
-        </ThemeProvider>
-      </div>
+          </Box>
+        </Box>
+      </ThemeProvider>
   );
 }
 
