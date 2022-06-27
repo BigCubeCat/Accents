@@ -5,10 +5,6 @@ export const roundedButton = {
   margin: 10,
 };
 
-export const charButton = {
-  margin: 1,
-};
-
 export const word = {
   display: 'flex',
   justifyContent: 'start',
@@ -16,8 +12,10 @@ export const word = {
 };
 
 export const bigBottomButton = {
+  marginTop: '10%',
   position: 'relative',
   width: '100%',
+  bottom: 0
 };
 
 export const centeredContainer = {
