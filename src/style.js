@@ -2,6 +2,8 @@ export const roundedButton = {
   width: 90,
   height: 90,
   borderRadius: '100%',
+  marginLeft: 10,
+  marginRight: 10,
 };
 
 export const charButton = {
@@ -17,7 +19,7 @@ export const word = {
 export const bigBottomButton = {
   position: 'relative',
   width: '100%',
-}
+};
 
 export const centeredContainer = {
   width: '70%',
@@ -26,15 +28,14 @@ export const centeredContainer = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
 };
 
 export const wordContainer = {...centeredContainer, justifyContent: 'center'};
 export const finishContainer = {
-  ...centeredContainer,
+  display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-around',
+  alignItems: 'center',
+  position: 'absolute',
+  left: '50%'
 };

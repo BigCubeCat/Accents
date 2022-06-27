@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import {useSelector} from 'react-redux';
 import Welcome from './components/Welcome';
-import {Box, createTheme, ThemeProvider} from '@mui/material';
+import {
+  createTheme, CssBaseline, Grid,
+  ThemeProvider,
+} from '@mui/material';
 import Header from './components/Header';
 import {WINDOWS} from './store/actions';
 import Game from './components/Game/Game';
-import store from './store/store';
 import Finish from './components/Finish';
 
 const theme = createTheme({
@@ -39,12 +41,24 @@ function App() {
   }
   return (
       <ThemeProvider theme={theme}>
-        <Box sx={{display: 'flex'}}>
+        <React.Fragment>
+          <CssBaseline/>
           <Header/>
-          <Box component="main" sx={{p: 3}}>
-            {mainWidget}
-          </Box>
-        </Box>
+          <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              style={{ minHeight: '100vh' }}
+          >
+
+            <Grid item xs={3}>
+              {mainWidget}
+            </Grid>
+
+          </Grid>
+        </React.Fragment>
       </ThemeProvider>
   );
 }
