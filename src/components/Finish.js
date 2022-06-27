@@ -42,7 +42,7 @@ export default function Finish() {
             Правильных ответов: {rightCount} из {store.words.length} ({percent}%)
           </Typography>
         </Box>
-        <Paper sx={{marginTop: "20%"}} elevation={0}>
+        <Paper sx={{marginTop: "20%", height: 400, overflowY: 'auto'}} elevation={0}>
           {words}
         </Paper>
         <Button
