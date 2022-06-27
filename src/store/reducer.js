@@ -10,8 +10,7 @@ export default function reducer(state=defaultState, action) {
   console.log(action)
   switch (action.type) {
     case actionTypes.setWindowId:
-      state.windowId = action.payload;
-      return state;
+      return {...state, windowId: action.payload};
     case actionTypes.setAnswer:
       state.user.push(action.payload);
       return state

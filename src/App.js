@@ -1,8 +1,12 @@
+import React, {useState } from 'react';
 import './App.css';
 import {useSelector} from 'react-redux';
 import Welcome from './components/Welcome';
 import {createTheme, ThemeProvider} from '@mui/material';
 import Header from './components/Header';
+import {WINDOWS} from './store/actions';
+import Game from './components/Game/Game';
+import store from './store/store';
 
 const theme = createTheme({
   palette: {
@@ -17,11 +21,16 @@ const theme = createTheme({
 
 function App() {
   const reduxState = useSelector(state => state);
-  console.log(reduxState);
   let mainWidget;
   switch (reduxState.windowId) {
-    case 0:
+    case WINDOWS.START:
       mainWidget = <Welcome/>;
+      break;
+    case WINDOWS.PLAY:
+      mainWidget = <Game/>;
+      break;
+    case WINDOWS.FINISH:
+      mainWidget = <h1>FINISH</h1>;
       break;
     default:
       mainWidget = <div></div>;
@@ -35,7 +44,7 @@ function App() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: '5%'
+            marginTop: '5%',
           }}>
             {mainWidget}
           </div>
