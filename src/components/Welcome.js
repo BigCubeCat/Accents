@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, Button, Typography} from '@mui/material';
 import * as style from '../style';
 import {useDispatch} from 'react-redux';
 import {setReduxState, WINDOWS} from '../store/actions';
 import {getRandomList} from '../data/data';
-import {centeredContainer} from '../style';
 
-export default function Welcome() {
+export default function Welcome({isMobile}) {
   const dispatch = useDispatch();
   const handleClick = value => {
     let {words, rights} = getRandomList(value);
@@ -19,7 +18,10 @@ export default function Welcome() {
     dispatch(setReduxState(newState));
   };
   return (
-      <Box >
+      <Box sx={{
+        display: 'flex',
+        flexDirection: (isMobile) ? 'column' : 'row',
+      }}>
         <Button variant="contained" onClick={() => handleClick(10)}
                 style={style.roundedButton}>
           <Typography variant="h6">10 слов</Typography>

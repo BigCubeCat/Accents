@@ -3,11 +3,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import * as style from '../../style';
 import {setAnswer, setWindowId, WINDOWS} from '../../store/actions';
 import Char from './Char';
-import {Box} from '@mui/material';
+import {Box, ButtonGroup} from '@mui/material';
 
 export default function Game() {
   const store = useSelector(state => state);
-  console.log(store);
   const dispatch = useDispatch();
   const [currentWord, setCurrentWord] = useState(0);
 
@@ -25,8 +24,10 @@ export default function Game() {
   const chars = store.words[currentWord].split('');
   return (
       <Box sx={{width: '100%', height: '70%'}}>
-        {chars.map(
-            (char, i) => <Char char={char} callback={() => handleClick(i)}/>)}
+        <ButtonGroup>
+          {chars.map(
+              (char, i) => <Char char={char} callback={() => handleClick(i)}/>)}
+        </ButtonGroup>
       </Box>
   );
 };

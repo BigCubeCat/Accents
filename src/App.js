@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {useSelector} from 'react-redux';
 import Welcome from './components/Welcome';
@@ -21,22 +21,35 @@ const theme = createTheme({
     },
   },
 });
+const mobileWidth = 500;
 
 function App() {
   const reduxState = useSelector(state => state);
+
+  // for mobile screens
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const detectSize = () => setWindowWidth(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener('resize', detectSize);
+    return () => {
+      window.removeEventListener('resize', detectSize);
+    };
+  }, [windowWidth]);
+
+  const isMobile = windowWidth < mobileWidth;
   let mainWidget;
   switch (reduxState.windowId) {
     case WINDOWS.START:
-      mainWidget = <Welcome/>;
+      mainWidget = <Welcome isMobile={isMobile}/>;
       break;
     case WINDOWS.PLAY:
-      mainWidget = <Game/>;
+      mainWidget = <Game />;
       break;
     case WINDOWS.FINISH:
-      mainWidget = <Finish/>;
+      mainWidget = <Finish isMobile={isMobile }/>;
       break;
     default:
-      mainWidget = <Welcome/>;
+      mainWidget = <Welcome isMobile={isMobile}/>;
       break;
   }
   return (

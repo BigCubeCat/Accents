@@ -2,8 +2,7 @@ export const roundedButton = {
   width: 90,
   height: 90,
   borderRadius: '100%',
-  marginLeft: 10,
-  marginRight: 10,
+  margin: 10,
 };
 
 export const charButton = {
