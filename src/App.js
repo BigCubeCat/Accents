@@ -7,6 +7,7 @@ import Header from './components/Header';
 import {WINDOWS} from './store/actions';
 import Game from './components/Game/Game';
 import store from './store/store';
+import Finish from './components/Finish';
 
 const theme = createTheme({
   palette: {
@@ -30,10 +31,10 @@ function App() {
       mainWidget = <Game/>;
       break;
     case WINDOWS.FINISH:
-      mainWidget = <h1>FINISH</h1>;
+      mainWidget = <Finish />
       break;
     default:
-      mainWidget = <div></div>;
+      mainWidget = <Welcome />
       break;
   }
   return (
